@@ -1,6 +1,6 @@
-# 🌬️ 2 Dimensional Flow Field Animation
+# 🌬️ 3 Dimensional Flow Field Animation
 
-This is a generative art project built with [p5.js](https://p5js.org/) that simulates particle movement influenced by a 2D flow field. Particles are dropped onto the canvas and follow a vector field generated using Perlin noise. Over time, they trace intricate, flowing paths, resulting in stunning and organic visuals.
+This is a generative art project built with [p5.js](https://p5js.org/) that simulates particle movement influenced by a 3D flow field. Particles are dropped onto the canvas and follow a vector field generated using Perlin noise. Over time, they trace intricate, flowing paths, resulting in stunning and organic visuals.
 
 ---
 

@@ -6,15 +6,14 @@
 
 let camAngle = 0;
 let camRadius = 300;
-let camSpeed = 0.01;
-
+let camSpeed = 0.015;
 
 let flowField = [[[]]]
 let particles = []
 let tOff = 0
-let dimensionWidth = 500
-let dimensionHeight = 500
-let dimensionDepth = 500
+let dimensionWidth = 600
+let dimensionHeight = 600
+let dimensionDepth = 600
 
 let simplex;
 
@@ -29,18 +28,18 @@ const flowFieldResolution = 10      // resolution of grid vectors
 const tstep = 0.01                  // how quick the vectors (direction of particles) change
 const numberOfParticles = 1000      
 const flowGridResolution = 5        // how different the adjacent cell vectors are within the perlin space (recommended 5)
-let sFlow, flowStrength = 0              // how much the direction of the particle velocity is influenced by the field vector
+let sFlow, flowStrength = 1              // how much the direction of the particle velocity is influenced by the field vector
 let sCentre, centreStrength = 0
 const maxSpeed = 2                  // maximum (and usually average) speed of the particles
 const backgroundColor = [2, 2, 50]  // r,g,b 
-const particleColor = [255, 255, 255, 70]  // r,g,b,hue
+const particleColor = [255, 255, 255, 100]  // r,g,b,hue
 /* adds a random factor to the color of each particle. format: [[RedStart, RedEnd], [GreenStart, GreenEnd], [BlueStart, BlueEnd]] 
  * To keep the original color with no changes, set to [[1, 1], [1, 1], [1, 1]]
  * Example: 
  * if set to [[1, 1], [0, 1], [0, 1]], green and blue components of the original color have a chance to be reduced
  * and hence the particles will be mostly influenced by the red component of the initial color
 */
-const randomColorScale = [[0, 1], [0, 1], [0, 1]]  
+const randomColorScale = [[1, 1], [0.3, 0.7], [0.3, 0.7]]  
 
 
 function setup() {
@@ -65,9 +64,9 @@ function draw() {
   noFill();
   stroke(255, 255, 255, 10);
   strokeWeight(1);
-  sphere(30);
-  stroke(255, 255, 255, 18);
-  box(60);
+  sphere(50);
+  stroke(255, 255, 255, 70);
+  box(dimensionWidth);
   pop();
 
 
@@ -97,7 +96,6 @@ function updateFlowField(tOff, resolution) {
     }
     array.push([[]])
   }
-  console.log(array[0][0][0])
   
   return array
 }
